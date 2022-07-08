@@ -6,10 +6,11 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      'mont': 'Montserrat, sans-serif',
-      'sans': 'Open Sans, sans-serif',
+      'sans': ['Open Sans', 'sans-serif'],
+      'mont': ['Montserrat', 'sans-serif'],
     },
     colors: {
+      transparent: 'transparent',
       light: 'rgb(250, 250, 250)',
       dark: 'rgb(125, 125, 125)',
       'info-light': '#6ec3ff',

@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import React from 'react'
 
 export default function Text({
@@ -22,32 +23,34 @@ export default function Text({
     className?: string
 }) {
 
-    const textColor = {
-        'light': 'text-light',
-        'dark': 'text-dark',
-        'info': darkmode ? 'text-info-light ' : 'text-info-dark',
-        'success': darkmode ? 'text-success-light ' : 'text-success-dark',
-        'error': darkmode ? 'text-error-light ' : 'text-error-dark',
-        'warning': darkmode ? 'text-warning-light ' : 'text-warning-dark',
-        'warmgradient': 'bg-clip-text text-transparent bg-gradient-to-b from-warmGradientA to-warmGradientB',
-        'techygradient': 'bg-clip-text text-transparent bg-gradient-to-b from-techyGradientA to-techyGradientB',
-    }[textcolor]
+    return <VariableElement format={format} className={classNames({
+        'text-light': textcolor === 'light',
+        'text-dark': textcolor === 'dark',
+        'text-info-light': textcolor === 'info' && !darkmode,
+        'text-info-dark': textcolor === 'info' && darkmode,
+        'text-success-light': textcolor === 'success' && !darkmode,
+        'text-success-dark': textcolor === 'success' && darkmode,
+        'text-warning-light': textcolor === 'warning' && !darkmode,
+        'text-warning-dark': textcolor === 'warning' && darkmode,
+        'text-error-light': textcolor === 'error' && !darkmode,
+        'text-error-dark': textcolor === 'error' && darkmode,
+        'bg-clip-text text-transparent bg-gradient-to-b from-warmGradientA to-warmGradientB': textcolor === 'warmgradient',
+        'bg-clip-text text-transparent bg-gradient-to-b from-techyGradientA to-techyGradientB': textcolor === 'techygradient',
+        [wrap == 'normal' ? 'break-normal' : wrap == 'newline' ? 'break-words' : 'break-all']: true,
+        [mont ? 'font-mont' : 'font-sans']: true,
+        'line-through': linethrough,
+        underline,
+        className
+    })}>{children}</VariableElement>
+}
 
-    const classNames = [
-        textColor,
-        wrap == 'normal' ? 'break-normal' : wrap == 'newline' ? 'break-words' : 'break-all',
-        mont ? 'mont' : 'sans'
-    ]
-
-    if (linethrough) classNames.push('line-through')
-    if (underline) classNames.push('underline')
-    if (className) classNames.push(className)
-    
-    return (
-        <>
-        {format == 'span' && <span className={classNames.join(' ')}>{children}</span>}
-        {format == 'p' && <p className={classNames.join(' ')}>{children}</p>}
-        {format == 'div' && <div className={classNames.join(' ')}>{children}</div>}
-        </>
-    )
+function VariableElement({format, children, className}: {
+    format: 'div' | 'span' | 'p',
+    children: React.ReactNode,
+    className?: string
+}) {
+    const myP = <p className={className}>{children}</p>
+    const myDiv = <div className={className}>{children}</div>
+    const mySpan = <span className={className}>{children}</span>
+    return { p: myP, div: myDiv, span: mySpan }[format]
 }
