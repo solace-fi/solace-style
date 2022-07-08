@@ -43,38 +43,66 @@ Dark.args = {
     children: "Text",
 }
 
-export const Info = Template.bind({});
-Info.args = {
+export const InfoLightMode = Template.bind({});
+InfoLightMode.args = {
     textcolor: "info",
     children: "Text",
 }
 
-export const Success = Template.bind({});
-Success.args = {
+export const SuccessLightMode = Template.bind({});
+SuccessLightMode.args = {
     textcolor: "success",
     children: "Text",
 }
 
-export const Warning = Template.bind({});
-Warning.args = {
+export const WarningLightMode = Template.bind({});
+WarningLightMode.args = {
     textcolor: "warning",
     children: "Text",
 }
 
-export const Error = Template.bind({});
-Error.args = {
+export const ErrorLightMode = Template.bind({});
+ErrorLightMode.args = {
     textcolor: "error",
     children: "Text",
 }
 
+export const InfoDarkMode = Template.bind({});
+InfoDarkMode.args = {
+    textcolor: "info",
+    children: "Text",
+    darkmode: true
+}
+
+export const SuccessDarkMode = Template.bind({});
+SuccessDarkMode.args = {
+    textcolor: "success",
+    children: "Text",
+    darkmode: true
+}
+
+export const WarningDarkMode = Template.bind({});
+WarningDarkMode.args = {
+    textcolor: "warning",
+    children: "Text",
+    darkmode: true
+}
+
+export const ErrorDarkMode = Template.bind({});
+ErrorDarkMode.args = {
+    textcolor: "error",
+    children: "Text",
+    darkmode: true
+}
+
 export const Warmgradient = Template.bind({});
 Warmgradient.args = {
-    gradient: "warmgradient",
+    textcolor: "warmgradient",
     children: "Text",
 }
 
 export const Techygradient = Template.bind({});
 Techygradient.args = {
-    gradient: "techygradient",
+    textcolor: "techygradient",
     children: "Text",
 }
