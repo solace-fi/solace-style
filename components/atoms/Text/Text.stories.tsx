@@ -1,9 +1,12 @@
+import React from 'react'
 import Text from "./Text";
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { withDesign } from 'storybook-addon-designs'
 
 export default {
     title: "Atoms/Text",
     component: Text,
+    decorators: [withDesign],
 } as ComponentMeta<typeof Text>
 
 const Template: ComponentStory<typeof Text> = (args: any) => <Text {...args} />;
@@ -12,6 +15,13 @@ export const Default = Template.bind({});
 Default.args = {
     children: "Text",
 }
+
+// Default.parameters = {
+//     design: {
+//         type: 'figma',
+//         url: "",
+//     }
+// }
 
 export const Mont = Template.bind({});
 Mont.args = {
