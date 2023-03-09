@@ -1,48 +1,43 @@
-import classNames from "classnames";
-import { FlexType, GeneralElementType } from "../../types";
+import { FlexType } from "./types";
+import { GeneralElementCss, GeneralElementType } from "../../types";
+import styled, { css } from "styled-components";
 
-export default function Flex({
-    ...rest
-}: FlexType & GeneralElementType) {
-    return (
-        <div className={classNames("flex",
-        rest.className,
-        {
-            'flex-row': rest.direction === 'row',
-            'flex-col': rest.direction === 'col',
-            'flex-col-reverse': rest.direction === 'col-reverse',
-            'flex-row-reverse': rest.direction === 'row-reverse',
+export const Flex = styled.div<FlexType & GeneralElementType>`
+  ${GeneralElementCss}
 
-            'justify-start': rest.justifycontent === 'start',
-            'justify-end': rest.justifycontent === 'end',
-            'justify-center': rest.justifycontent === 'center',
-            'justify-between': rest.justifycontent === 'between',
-            'justify-around': rest.justifycontent === 'around',
-            'justify-evenly': rest.justifycontent === 'evenly',
+  ${({ col })                     => col                         ? css`flex-direction: column;`                        : ""}
+  ${({ row })                     => row                         ? css`flex-direction: row;`                           : ""}
+  ${({ colReverse })              => colReverse                  ? css`flex-direction: column-reverse;`                : ""}
+  ${({ rowReverse })              => rowReverse                  ? css`flex-direction: row-reverse;`                   : ""}
 
-            'justify-items-start': rest.justifyitems === 'start',
-            'justify-items-end': rest.justifyitems === 'end',
-            'justify-items-center': rest.justifyitems === 'center',
-            'justify-items-stretch': rest.justifyitems === 'stretch',
+  ${({ gap })                     => gap           !== undefined ? css`gap: ${gap}px;`                                 : ""}
 
-            'content-center': rest.aligncontent === 'center',
-            'content-start': rest.aligncontent === 'start',
-            'content-end': rest.aligncontent === 'end',
-            'content-between': rest.aligncontent === 'between',
-            'content-around': rest.aligncontent === 'around',
-            'content-evenly': rest.aligncontent === 'evenly',
+  ${({ wrapped })                 => wrapped                     ? css`flex-wrap: wrap;`                               : ""}
+  ${({ noWrap })                  => noWrap                      ? css`flex-wrap: nowrap;`                             : ""}
+  ${({ wrapReverse })             => wrapReverse                 ? css`flex-wrap: wrap-reverse;`                       : ""}
 
-            'items-center': rest.alignitems === 'center',
-            'items-start': rest.alignitems === 'start',
-            'items-end': rest.alignitems === 'end',
-            'items-stretch': rest.alignitems === 'stretch',
-            'items-baseline': rest.alignitems === 'baseline',
+  ${({ justifyItemsStretch })     => justifyItemsStretch         ? css`justify-items: stretch;`                        : ""}
+  ${({ justifyItemsStart })       => justifyItemsStart           ? css`justify-items: flex-start;`                     : ""}
+  ${({ justifyItemsCenter })      => justifyItemsCenter          ? css`justify-items: center;`                         : ""}
+  ${({ justifyItemsEnd })         => justifyItemsEnd             ? css`justify-items: flex-end;`                       : ""}
 
-            'flex-wrap': rest.wrap === 'wrap',
-            'flex-wrap-reverse': rest.wrap === 'wrap-reverse',
-            'flex-nowrap': rest.wrap === 'nowrap',
-        })}>
-            {rest.children}
-        </div>
-    )
-}
+  ${({ alignItemsStretch })       => alignItemsStretch           ? css`align-items: stretch;`                          : ""}
+  ${({ alignItemsStart })         => alignItemsStart             ? css`align-items: flex-start;`                       : ""}
+  ${({ alignItemsCenter })        => alignItemsCenter            ? css`align-items: center;`                           : ""}
+  ${({ alignItemsEnd })           => alignItemsEnd               ? css`align-items: flex-end;`                         : ""}
+  ${({ alignItemsBaseline })      => alignItemsBaseline          ? css`align-items: baseline;`                         : ""}
+
+  ${({ justifyContentBetween })   => justifyContentBetween       ? css`justify-content: space-between;`                : ""}
+  ${({ justifyContentAround })    => justifyContentAround        ? css`justify-content: space-around;`                 : ""}
+  ${({ justifyContentEvenly })    => justifyContentEvenly        ? css`justify-content: space-evenly;`                 : ""}
+  ${({ justifyContentStart })     => justifyContentStart         ? css`justify-content: flex-start;`                   : ""}
+  ${({ justifyContentCenter })    => justifyContentCenter        ? css`justify-content: center;`                       : ""}
+  ${({ justifyContentEnd })       => justifyContentEnd           ? css`justify-content: flex-end;`                     : ""}
+
+  ${({ alignContentBetween })     => alignContentBetween         ? css`align-content: space-between;`                  : ""}
+  ${({ alignContentAround })      => alignContentAround          ? css`align-content: space-around;`                   : ""}
+  ${({ alignContentEvenly })      => alignContentEvenly          ? css`align-content: space-evenly;`                   : ""}
+  ${({ alignContentStart })       => alignContentStart           ? css`align-content: flex-start;`                     : ""}
+  ${({ alignContentCenter })      => alignContentCenter          ? css`align-content: center;`                         : ""}
+  ${({ alignContentEnd })         => alignContentEnd             ? css`align-content: flex-end;`                       : ""}
+`

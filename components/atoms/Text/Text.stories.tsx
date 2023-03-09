@@ -1,5 +1,5 @@
 import React from 'react'
-import Text from "./Text";
+import { Text } from "./Text";
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { withDesign } from 'storybook-addon-designs'
 
@@ -35,84 +35,78 @@ Underline.args = {
     children: "Text",
 }
 
-export const Linethrough = Template.bind({});
-Linethrough.args = {
-    linethrough: true,
-    children: "Text",
-}
-
 export const Light = Template.bind({});
 Light.args = {
-    textcolor: "light",
+    light: true,
     children: "Text",
 }
 
 export const Dark = Template.bind({});
 Dark.args = {
-    textcolor: "dark",
+    dark: true,
     children: "Text",
 }
 
 export const InfoLightMode = Template.bind({});
 InfoLightMode.args = {
-    textcolor: "info",
+    info: true,
     children: "Text",
 }
 
 export const SuccessLightMode = Template.bind({});
 SuccessLightMode.args = {
-    textcolor: "success",
+    success: true,
     children: "Text",
 }
 
 export const WarningLightMode = Template.bind({});
 WarningLightMode.args = {
-    textcolor: "warning",
+    warning: true,
     children: "Text",
 }
 
 export const ErrorLightMode = Template.bind({});
 ErrorLightMode.args = {
-    textcolor: "error",
+    error: true,
     children: "Text",
 }
 
 export const InfoDarkMode = Template.bind({});
 InfoDarkMode.args = {
-    textcolor: "info",
+    info: true,
     children: "Text",
     darkmode: true
 }
 
 export const SuccessDarkMode = Template.bind({});
 SuccessDarkMode.args = {
-    textcolor: "success",
+    success: true,
     children: "Text",
     darkmode: true
 }
 
 export const WarningDarkMode = Template.bind({});
 WarningDarkMode.args = {
-    textcolor: "warning",
+    warning: true,
     children: "Text",
     darkmode: true
 }
 
 export const ErrorDarkMode = Template.bind({});
 ErrorDarkMode.args = {
-    textcolor: "error",
+    error: true,
     children: "Text",
     darkmode: true
 }
 
 export const Warmgradient = Template.bind({});
 Warmgradient.args = {
-    textcolor: "warmgradient",
+    warmgradient: true,
     children: "Text",
 }
 
 export const Techygradient = Template.bind({});
 Techygradient.args = {
-    textcolor: "techygradient",
+    techygradient: true,
     children: "Text",
 }

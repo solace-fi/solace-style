@@ -1,7 +1,7 @@
 import React from 'react'
-import Flex from "./Flex";
-import Text from "../Text/Text";
-import Button from "../Button/Button";
+import { Flex } from "./Flex";
+import { Text } from "../Text/Text";
+import { Button } from "../Button/Button";
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 export default {
@@ -13,7 +13,7 @@ const Template: ComponentStory<typeof Flex> = (args: any) => <Flex {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-    alignitems: "center",
+    alignitemsCenter: true,
     children: <>
         <Text>Flex</Text>
         <Button>Flex Button</Button>
@@ -28,8 +28,8 @@ Default.parameters = {
 
 export const Column = Template.bind({});
 Column.args = {
-    alignitems: "center",
-    direction: 'col',
+    alignitemsCenter: true,
+    col: true,
     children: <>
         <Text>Flex</Text>
         <Button>Flex Button</Button>
@@ -38,8 +38,8 @@ Column.args = {
 
 export const RowReverse = Template.bind({});
 RowReverse.args = {
-    alignitems: "center",
-    direction: 'row-reverse',
+    alignitemsCenter: true,
+    rowReverse: true,
     children: <>
         <Text>Flex</Text>
         <Button>Flex Button</Button>
@@ -48,8 +48,8 @@ RowReverse.args = {
 
 export const ColumnReverse = Template.bind({});
 ColumnReverse.args = {
-    alignitems: "center",
-    direction: 'col-reverse',
+    alignitemsCenter: true,
+    colReverse: true,
     children: <>
         <Text>Flex</Text>
         <Button>Flex Button</Button>
